@@ -1,8 +1,7 @@
 import React from 'react';
-import api from './../../common/api/movieApi';
 
 function MovieDetails() {
-  return <div></div>;
+  return <div>movie detail</div>;
 }
 
 export default MovieDetails;

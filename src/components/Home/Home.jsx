@@ -1,17 +1,22 @@
 import React, { useEffect } from 'react';
-import api from './../../common/api/movieApi';
+import { MovieListing } from '..';
 import style from './Home.module.scss';
-
+import api from './../../common/api/movieApi';
+import { useDispatch } from 'react-redux';
+import { addMovies } from '../../features/movies/movieSlice';
 function Home() {
+  const dispatch = useDispatch();
+
   useEffect(async () => {
-    const { data } = await api.get('tt3896198');
-    console.log(data);
+    const { data } = await api.get('Harry');
+    dispatch(addMovies(data));
   }, []);
 
   return (
-    <div className={style.home}>
-      <h1>Hello</h1>
-    </div>
+    <>
+      <div className={style.banner}></div>
+      <MovieListing />
+    </>
   );
 }
 

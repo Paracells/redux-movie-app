@@ -4,4 +4,5 @@ export { default as Layout } from './Layout/Layout';
 export { default as MovieCard } from './MovieCard/MovieCard';
 export { default as MovieDetails } from './MovieDetails/MovieDetails';
 export { default as MovieListing } from './MovieListing/MovieListing';
+export { default as PageNotFound } from './PageNotFound/PageNotFound';
 export { default as Footer } from './Footer/Footer';

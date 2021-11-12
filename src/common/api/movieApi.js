@@ -5,7 +5,7 @@ const api = axios.create({
 });
 
 api.interceptors.request.use((config) => {
-  config.url = `?i=${config.url}&apikey=${import.meta.env.VITE_API_KEY}`;
+  config.url = `?s=${config.url}&apikey=${import.meta.env.VITE_API_KEY}`;
   return config;
 });
 
