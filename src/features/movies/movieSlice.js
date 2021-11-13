@@ -4,13 +4,27 @@ import api from './../../common/api/movieApi';
 export const fetchAsyncMovies = createAsyncThunk(
   'movies/fetchAsyncMovies',
   async () => {
-    const { data } = await api.get('Avatar');
+    const movieName = 'Avatar';
+    const { data } = await api.get(
+      `?s=${movieName}&apikey=${import.meta.env.VITE_API_KEY}`
+    );
+    return data;
+  }
+);
+
+export const fetchMovieDetail = createAsyncThunk(
+  'movies/fetchAsyncMovieDetail',
+  async (id) => {
+    const { data } = await api.get(
+      `?i=${id}&apikey=${import.meta.env.VITE_API_KEY}&Plot=full`
+    );
     return data;
   }
 );
 
 const initialState = {
   movies: {},
+  movieDetail: {},
   isLoading: true,
 };
 
@@ -33,6 +47,15 @@ const movieSlice = createSlice({
     },
     [fetchAsyncMovies.rejected]: () => {
       console.log('error');
+    },
+
+    [fetchMovieDetail.pending]: (state) => {
+      state.isLoading = true;
+      console.log('pending');
+    },
+    [fetchMovieDetail.fulfilled]: (state, action) => {
+      console.log('success');
+      return { ...state, isLoading: false, movieDetail: action.payload };
     },
   },
 });
