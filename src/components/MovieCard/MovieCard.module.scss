@@ -1,0 +1,30 @@
+@import '../../common/colors.scss';
+
+.item {
+  background: $second-color;
+  cursor: pointer;
+}
+
+.top {
+  height: 300px;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.info {
+  color: $font-primary;
+
+  h4 {
+    font-size: 22px;
+    font-weight: 400;
+    margin-bottom: 10px;
+  }
+}
+
+.bottom {
+  padding: 20px;
+}
