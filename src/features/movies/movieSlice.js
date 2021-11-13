@@ -1,7 +1,17 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import api from './../../common/api/movieApi';
+
+export const fetchAsyncMovies = createAsyncThunk(
+  'movies/fetchAsyncMovies',
+  async () => {
+    const { data } = await api.get('Avatar');
+    return data;
+  }
+);
 
 const initialState = {
   movies: {},
+  isLoading: true,
 };
 
 const movieSlice = createSlice({
@@ -12,8 +22,20 @@ const movieSlice = createSlice({
       state.movies = action.payload;
     },
   },
+  extraReducers: {
+    [fetchAsyncMovies.pending]: (state) => {
+      state.isLoading = true;
+      console.log('pending');
+    },
+    [fetchAsyncMovies.fulfilled]: (state, action) => {
+      console.log('success');
+      return { ...state, isLoading: false, movies: action.payload };
+    },
+    [fetchAsyncMovies.rejected]: () => {
+      console.log('error');
+    },
+  },
 });
 
 export const { addMovies } = movieSlice.actions;
-export const getAllMovies = (state) => state.movies.movies;
 export default movieSlice.reducer;
