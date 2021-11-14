@@ -35,6 +35,9 @@ const movieSlice = createSlice({
     addMovies: (state, action) => {
       state.movies = action.payload;
     },
+    cleanMovieDetail: (state) => {
+      state.movieDetail = {};
+    },
   },
   extraReducers: {
     [fetchAsyncMovies.pending]: (state) => {
@@ -60,5 +63,5 @@ const movieSlice = createSlice({
   },
 });
 
-export const { addMovies } = movieSlice.actions;
+export const { addMovies, cleanMovieDetail } = movieSlice.actions;
 export default movieSlice.reducer;
