@@ -6,3 +6,4 @@ export { default as MovieDetails } from './MovieDetails/MovieDetails';
 export { default as MovieListing } from './MovieListing/MovieListing';
 export { default as PageNotFound } from './PageNotFound/PageNotFound';
 export { default as Footer } from './Footer/Footer';
+export { default as Loader } from './Loader/Loader';
