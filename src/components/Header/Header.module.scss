@@ -29,3 +29,36 @@
   width: 100%;
   height: 100%;
 }
+
+.search {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+
+  form {
+    display: flex;
+    justify-content: center;
+    width: 70%;
+
+    button {
+      padding: 0 8px;
+      font-size: 20px;
+      cursor: pointer;
+      height: 38px;
+      background-color: $primary-color;
+      border: 1px solid $font-secondary;
+    }
+
+    input {
+      font-size: 18px;
+      width: 100%;
+      padding: 5px 5px 5px 10px;
+      outline: none;
+      background-color: #1a242f;
+      border: 1px solid $font-secondary;
+      border-radius: 5px;
+      margin-right: 10px;
+      color: $font-primary;
+    }
+  }
+}
