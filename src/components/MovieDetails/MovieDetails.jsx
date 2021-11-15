@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router';
-import { Loader } from '..';
+import { Message } from '..';
 import {
   cleanMovieDetail,
   fetchMovieDetail,
@@ -22,7 +22,7 @@ function MovieDetails() {
   return (
     <>
       {isLoading ? (
-        <Loader />
+        <Message />
       ) : (
         <div className={style.section}>
           <div className={style.left}>

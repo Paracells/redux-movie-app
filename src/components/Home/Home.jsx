@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Loader, MovieListing } from '..';
+import { Message, MovieListing } from '..';
 import style from './Home.module.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchAsyncMovies } from '../../features/movies/movieSlice';
@@ -12,7 +12,7 @@ function Home() {
     <>
       <div className={style.banner}></div>
       <h2 className={style.title}>Movies</h2>
-      {isLoading ? <Loader /> : <MovieListing />}
+      {isLoading ? <Message /> : <MovieListing />}
     </>
   );
 }
